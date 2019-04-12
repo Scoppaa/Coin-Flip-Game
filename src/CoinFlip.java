@@ -29,7 +29,7 @@ public class CoinFlip {
             //If users guess equals the coin
             if (guess.equals(coin1.toString())) {
                 System.out.println(guess + "! You win: $" + bet); //User wins
-                balance += bet; //Adds the users bet to their balance
+                balance += bet * 2; //Returns the users bet and adds winnings to their balance
             }
             else {
                 System.out.println("You lose! Your balance has been reset"); //User loses
