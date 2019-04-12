@@ -4,26 +4,33 @@ public class CoinFlip {
 
     public static void main(String[] args)
     {
-
+        String reflip = "";
         Scanner scan = new Scanner(System.in);
-        System.out.println("Heads or Tails?");
-        String guess = scan.next();
+        double balance = 0;
 
-        Coin coin1 = new Coin();
-        coin1.flip();
+        do {
+            System.out.println("How much would you like to bet?");
+            double bet = scan.nextDouble();
 
-        if (guess.equals(coin1.toString()))
-            System.out.println("You win!");
-        else
-            System.out.println("You lose!");
+            System.out.println("Heads or Tails?");
+            String guess = scan.next();
 
-        /*
-        System.out.println("The coin reads..." + coin1.toString().toUpperCase() + "!");
-        if (coin1.isHeads())
-            System.out.println("You win!");
-        else
-            System.out.println("You lose!");
-            */
+            Coin coin1 = new Coin();
+            coin1.flip();
+
+            if (guess.equals(coin1.toString())) {
+                System.out.println(guess + "! You win: $" + bet);
+                balance += bet;
+            }
+            else {
+                System.out.println("You lose! Your balance has been reset");
+                balance = 0;
+            }
+            System.out.println("Your balance: $" + balance);
+            System.out.println("Play Again? Type Y for Yes, Type N for No");
+            reflip = scan.next();
+
+        } while(reflip.equals("Y"));
 
     }
 }
